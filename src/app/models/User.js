@@ -35,10 +35,12 @@ UserSchema.pre('save', async function (next) {
 UserSchema.methods = {
   compareHash (password) {
     return bcrypt.compare(password, this.password)
-  },
+  }
+}
 
-  generateToken () {
-    return jwt.sign({ id: this.id }, settings.authSecret, {
+UserSchema.statics = {
+  generateToken ({ id }) {
+    return jwt.sign({ id }, settings.authSecret, {
       expiresIn: settings.ttl
     })
   }

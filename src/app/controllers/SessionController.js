@@ -15,7 +15,7 @@ class SessionController {
         return res.status(400).json({ error: 'Invalid passowrd' })
       }
 
-      return res.status(200).json({ user, token: user.generateToken() })
+      return res.status(200).json({ user, token: User.generateToken(user) })
     } catch (err) {
       return next(err)
     }
