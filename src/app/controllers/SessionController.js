@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const User = require('../models/User')
 
 class SessionController {
   async store (req, res, next) {
@@ -15,7 +15,7 @@ class SessionController {
         return res.status(400).json({ error: 'Invalid passowrd' })
       }
 
-      return res.status(200).json({ user, token: User.generateToken(user) })
+      return res.status(200).json({ user, token: user.generateToken() })
     } catch (err) {
       return next(err)
     }
