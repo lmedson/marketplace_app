@@ -13,5 +13,9 @@ module.exports = {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASSWORD
     }
+  },
+  redisConfig: {
+    host: '127.0.0.1',
+    port: 6379
   }
 }
