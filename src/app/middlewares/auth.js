@@ -12,7 +12,6 @@ module.exports = async (req, res, next) => {
   const [, token] = authHeader.split(' ')
   try {
     const decoded = await promisify(jwt.verify)(token, settings.authSecret)
-
     req.userId = decoded.id
 
     return next()

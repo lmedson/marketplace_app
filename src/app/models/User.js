@@ -40,7 +40,7 @@ UserSchema.methods = {
 
 UserSchema.statics = {
   generateToken ({ id }) {
-    return jwt.sign({ id: this.id }, settings.authSecret, {
+    return jwt.sign({ id }, settings.authSecret, {
       expiresIn: settings.ttl
     })
   }
