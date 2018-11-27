@@ -10,10 +10,10 @@ class PurchaseMail {
 
     await Mail.sendMail({
       from: ' "Medson Mendes" <medson@dd.com.br> ',
-      to: purchaseAd.author.email,
-      subject: `Solicitação de compra: ${purchaseAd.title}`,
+      to: ad.author.email,
+      subject: `Solicitação de compra: ${ad.title}`,
       template: 'purchase',
-      context: { user, content, ad: purchaseAd }
+      context: { user, content, ad }
     })
 
     return done()
